@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理员后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+		.bus:before{
+			color: rgb(0,170,255);
+		}
+		th{
+		color: #333;
+		border-top: 1px solid rgb(180,180,180);
+		border-bottom: 1px solid rgb(180,180,180);
+		padding-top: 8px;
+		padding-bottom: 8px;
+		background-color: rgb(245,245,245);
+		font-size: 14px;
+		line-height: 20px;
+		}
+		table{
+			margin-top: 10px;
+		}
+		td:hover{
+			background: transparent;
+		}
+	</style>
+</head>
+<body>
+	
+	<div style="position: fixed;background: #f5f5fa;height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src=".\img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src=".\img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<!-- <a href="#" class="cus-ser-pic">
+			<img src=".\img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a> -->
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./admin-chart.html" class="chart sidebar-a iconfont">统计分析</a>
+		<a href="#" class="bus sidebar-a iconfont"  style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;">企业管理</a>
+	</div>
+
+	<div class="white-back">
+		<div class="info-entity-top">
+			<!-- <div class="info-entity-top-title" style="font-size: 25px;">产品管理：</div> -->
+			<!-- <button class="info-entity-top-button" style="width: 110px;border-radius: 5px;">新增产品</button> -->
+			<button class="info-entity-top-button">搜索</button>
+			<input type="text" class="info-entity-top-search-input" placeholder="请输入关键字">
+			<button class="info-entity-class-button">按名称</button>
+		</div>
+
+		
+		<table cellspacing="0">
+			<tr>
+				<th style="width: 210px;">企业名称</th>
+				<th style="width: 210px;">联系人电话</th>
+				<th style="width: 170px;">联系人邮箱</th>
+				<th style="width: 170px;">账户版本</th>
+				<th style="width: 170px;">状态</th>
+				<th style="width: 170px;">操作</th>
+			</tr>
+			<tr>
+				<td>益民企业</td>
+				<td>13158425714</td>
+				<td>35478924@qq.com</td>
+				<td>标准版</td>
+				<td style="color: red;">过期</td>
+				<td class="admin-bus-tool" onclick="showacc();">查看账户信息</td>
+			</tr>
+			<tr>
+				<td>鑫安企业</td>
+				<td>13845712359</td>
+				<td>64688873@163.com</td>
+				<td>标准版</td>
+				<td style="color: rgb(0, 128, 0);">正常</td>
+				<td class="admin-bus-tool">查看账户信息</td>
+			</tr>
+			<tr>
+				<td>永盛企业</td>
+				<td>15647853542</td>
+				<td>56413545@qq.com</td>
+				<td>企业版</td>
+				<td style="color: rgb(0, 128, 0);">正常</td>
+				<td class="admin-bus-tool">查看账户信息</td>
+			</tr>
+			<tr>
+				<td>科瑞企业</td>
+				<td>13847853496</td>
+				<td>64163564@163.com</td>
+				<td>豪华版</td>
+				<td style="color: red">过期</td>
+				<td class="admin-bus-tool">查看账户信息</td>
+			</tr>
+			<tr>
+				<td>红叶企业</td>
+				<td>18835415896</td>
+				<td>6468646@qq.com</td>
+				<td>标准版</td>
+				<td style="color: rgb(0, 128, 0);">正常</td>
+				<td class="admin-bus-tool">查看账户信息</td>
+			</tr>
+			<tr>
+				<td>普众企业</td>
+				<td>13645871258</td>
+				<td>357483783@qq.com</td>
+				<td>企业版</td>
+				<td style="color: red">过期</td>
+				<td class="admin-bus-tool">查看账户信息</td>
+			</tr>
+		</table>
+
+		<div class="bus-bottom-menu">
+			<!-- <div class="bus-bottom-menu-left">共24条，每页10条</div> -->
+			<div class="bus-bottom-menu-right">
+				<button class="turn-button">跳转</button>
+				<div class="near-turn-input">页</div>
+				<input type="text" class="turn-input" value="1">
+				<div class="near-turn-input">第</div>
+				<div class="turn-text" style="margin-right: 20px;">下一页</div>
+				<div class="turn-div-now">1</div>
+				<div class="turn-text">上一页</div>
+			</div>
+		</div>
+
+	</div>
+
+		
+	<div class="admin-account">
+		<div class="acc-info-title">账户信息：</div>
+		<div style="padding-left: 30px;margin-top: 20px;">
+			<div class="balance">账户余额</div>
+			<div class="balance-num">￥2000</div>
+			<!-- <button class="recharge-button">在线充值</button> -->
+			<div class="bus-name">公司名称：XXX</div>	
+		</div>
+		<!-- <div style="border: 1px solid #e5e5e5;margin-top: 20px;"></div> -->
+		<div style="padding-left: 30px;margin-top: 18px;">
+			<div class="acc-normal ver">账户版本：标准版</div>
+			<div class="acc-normal cap">在线坐席：6个</div>
+			<div class="acc-normal arr-data">有效日期：2017年7月22日 </div>
+			<div class="acc-normal cap">机器人对话量：40/10000</div>
+			<div class="acc-normal cap">知识库容量：200/10000</div>
+		</div>
+		<div style="text-align: center;margin-top: 5px;">
+			<button style="width: 90px;height: 30px;background: rgb(0,170,236);color: white;margin-right: 10px;cursor: pointer;" onclick="closeacc();">催缴</button>
+			<button style="width: 90px;height: 30px;background: white;border:1px solid rgb(0,170,236);cursor: pointer;" onclick="closeacc();">返回</button>
+		</div>
+	</div>
+
+	<div class="zhedang" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;background: rgba(0,0,0,0.7);z-index: 99;display: none;"></div>
+	
+	<script>
+		function showacc(){
+			var x=document.getElementsByClassName("admin-account");
+			x[0].style.display="block";
+			var y=document.getElementsByClassName("zhedang");
+			y[0].style.display="block";
+		}
+		function closeacc(){
+			var x=document.getElementsByClassName("admin-account");
+			x[0].style.display="none";
+			var y=document.getElementsByClassName("zhedang");
+			y[0].style.display="none";
+		}
+	</script>
+</body>
+</html>

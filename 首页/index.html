@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蓝鸥智能客服首页</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+	<div id="reg" class="reg-entity" style="display: none;z-index: 14;">
+		<div onclick="closereg()" class="land-close iconfont" style="cursor: pointer; float: right; color: black;margin-right: -10px;margin-top: -10px;"></div>
+		<div class="reg-title">完成注册，即刻拥有一款云端客服产品</div>
+		<input type="text" class="reg-input" placeholder="公司名称">
+		<input type="text" class="reg-input" placeholder="官网">
+		<input type="text" class="reg-input" placeholder="行业">
+		<input type="text" class="reg-input" placeholder="联系人姓名">
+		<input type="text" class="reg-input" placeholder="电话">
+		<input type="text" class="reg-input" placeholder="邮箱">
+		<input type="password" class="reg-input" placeholder="密码（8-20位数字、字母或符号组合）">
+		<button class="reg-reg-button" onclick="closereg();">免费注册</button>
+		<div class="reg-bottom-left">请阅读蓝欧客服</div>
+		<div class="reg-bottom-right">已有账号？</div>
+	</div>
+	
+	<div id="zhedang" style="display: none;position: absolute; width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.8);z-index: 11;"></div>
+	<div id="zhedang1" style="display: none;position: absolute; width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.8);z-index: 11;"></div>
+	<div class="home-page-background"></div>
+	<div class="home-page-filter"></div>
+	<div class="home-page-topbar">
+		<img src="./img/000.png" alt="" style="position: absolute; height: 120px;top: -10px;left: 20px;">
+		<button class="topbar-button" style="margin-right: 40px;" onclick="openreg();">企业注册</button>
+		<button class="topbar-button" onclick="openloginadmin();">管理员登录</button>
+		<!-- <a href="#" class="home-page-brand"></a> -->
+		<!-- <a href="" class="home-page-menus" style="margin-right: 120px">注册企业账号</a> -->
+		<!-- <a href="" class="home-page-menus">|</a>
+		<a href="" class="home-page-menus">登陆</a> -->
+		<!-- <a href="" class="home-page-menus">关于</a>
+		<a href="" class="home-page-menus">成功案例</a>
+		<a href="" class="home-page-menus">产品中心</a>
+		<a href="" class="home-page-menus">首页</a> -->
+	</div>
+	<div class="home-page-center">蓝鸥企业智能客服saas系统</div>
+	<div class="home-page-btns">
+		<a href="../新咨询窗口/index.html" target="1" class="home-page-chat home-page-btn">开始咨询</a>
+		<a onclick="openlogin()" class="home-page-cus home-page-btn">客服入口</a>
+		<a onclick="openloginbus()" class="home-page-bus home-page-btn">企业入口</a>
+	</div>
+
+<!-- <div id="landper" style="display: none; position: absolute;top:50%;left:50%;margin-top: -230px;margin-left: -185px;z-index: 12;">
+	<div onclick="closeper()" class="land-close iconfont" style="cursor: pointer; float: right;margin-right: 5px;margin-top:5px; color: white;"></div>
+	<h1 class="user-type"></h1>
+	<div class="head-info" style="line-height: 60px;color: white;text-indent: 25px;">客服登陆</div>
+	<div class="head-info-1">
+		<img src=".\img\kefu.png" alt="" style="width: 100px;width: 100px;margin:0 auto;margin-top: 36.2px;">
+	</div>
+	<form action="" class="login-form">
+			<input type="text" class="text" placeholder="Username" >
+			<input type="password" class="key" placeholder="Password">
+	</form>
+	<a href="../客服后台/cus-info.html" style="display: block;" class="login-button">登陆</a>
+</div> -->
+<div id="landper" class="land-entity" style="display: none;z-index: 13;">
+		<div onclick="closeper();" class="land-close iconfont" style="cursor: pointer; float: right;margin-right: -38px;margin-top:-13px; color: black;"></div>
+		<div class="land-account-title">账号：</div>
+		<input type="text" class="land-account-input">
+		<div class="land-password">密码：</div>
+		<input type="password" class="land-password-input">
+		<div class="land-bottom">
+			<div class="land-hint" style="cursor: none;">Tips:客服账号由企业发放</div>
+			<a class="login" href="../客服后台/cus-info.html" >登录</a>
+		</div>
+</div>
+
+<div id="landadmin" class="land-entity" style="display: none;z-index: 13;">
+		<div onclick="closeloginadmin();" class="land-close iconfont" style="cursor: pointer; float: right;margin-right: -38px;margin-top:-13px; color: black;"></div>
+		<div class="land-account-title">账号：</div>
+		<input type="text" class="land-account-input" value="Administrator">
+		<div class="land-password">密码：</div>
+		<input type="password" class="land-password-input">
+		<div class="land-bottom">
+			<a class="login" href="../超级管理员后台/admin-chart.html" >登录</a>
+		</div>
+</div>
+
+
+<!-- <div id="land-bus" style="display: none; position: absolute;top:50%;left:50%;margin-top: -230px;margin-left: -185px;z-index: 13;">
+	<div onclick="closebus()" class="land-close iconfont" style="cursor: pointer; float: right;margin-right: 5px;margin-top:5px; color: white;"></div>
+	<h1 class="user-type"></h1>
+	<div class="head-info" style="line-height: 60px;color: white;text-indent: 25px;">企业登陆</div>
+	<div class="head-info-1">
+		<img src=".\img\bus-pic.png" alt="" style="width: 100px;width: 100px;margin:0 auto;margin-top: 36.2px;">
+	</div>
+	<form action="" class="login-form">
+			<input type="text" class="text" placeholder="Username" >
+			<input type="password" class="key" placeholder="Password">
+	</form>
+	<a href="../企业后台/bus-chart.html" style="display: block;" class="login-button">登录</a>
+</div> -->
+
+<div id="land-bus" class="land-entity" style="display: none;z-index: 13;">
+		<div onclick="closebus()" class="land-close iconfont" style="cursor: pointer; float: right;margin-right: -38px;margin-top:-13px; color: black;"></div>
+		<div class="land-account-title">账号：</div>
+		<input type="text" class="land-account-input">
+		<div class="land-password">密码：</div>
+		<input type="password" class="land-password-input">
+		<div class="land-bottom">
+			<div class="land-hint" onclick="openreg();">没有账号？立即注册</div>
+			<a class="login" href="../企业后台/bus-chart.html" >登录</a>
+		</div>
+</div>
+
+
+
+<script>
+	function openlogin(){
+		document.getElementById("landper").style.display="";
+		document.getElementById("zhedang").style.display="";
+	}
+	function closeper(){
+		document.getElementById("landper").style.display="none";
+		document.getElementById("zhedang").style.display="none";
+	}
+	function openloginbus(){
+		document.getElementById("land-bus").style.display="";
+		document.getElementById("zhedang").style.display="";
+	}
+	function closebus(){
+		document.getElementById("land-bus").style.display="none";
+		document.getElementById("zhedang").style.display="none";
+	}
+	function openreg(){
+		if(document.getElementById("zhedang").style.display=="none"){
+			document.getElementById("zhedang").style.display="";
+		}
+		document.getElementById("reg").style.display="";
+	}
+	function closereg(){
+		document.getElementById("reg").style.display="none";
+		if(document.getElementById("land-bus").style.display=="none"){
+			document.getElementById("zhedang").style.display="none";
+		}
+		
+	}
+	function openloginadmin(){
+		document.getElementById("landadmin").style.display="";
+		document.getElementById("zhedang").style.display="";
+	}
+	function closeloginadmin(){
+		document.getElementById("landadmin").style.display="none";
+		document.getElementById("zhedang").style.display="none";
+	}
+</script>
+</body>
+</html>

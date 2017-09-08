@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>企业后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+	.mes:before{
+		color: rgb(0,170,255);
+	}
+	</style>
+</head>
+<body>
+
+	<div style="position: fixed;background: #f5f5fa;height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src=".\img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src=".\img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<a href="#" class="cus-ser-pic">
+			<img src=".\img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a>
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./bus-chart.html" class="chart sidebar-a iconfont">产品问题分布</a>
+		<a href="./bus-info.html" class="info sidebar-a iconfont">企业信息</a>
+		<a href="#" class="mes sidebar-a iconfont" style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;">用户留言</a>
+		<a href="#" class="arr sidebar-a iconfont" onclick="showarr();">客服管理</a>
+
+			<a href="bus-arrinfo.html" class="sidebar-a-son sidebar-a">客服信息</a>
+			<a href="bus-arrtime.html" class="sidebar-a-son sidebar-a">排班管理</a>
+			<a href="bus-arreva.html" class="sidebar-a-son sidebar-a">客服统计</a>
+		<!-- <a href="./bus-add.html" class="add-questions sidebar-a iconfont">添加问题</a> -->
+		<a href="./bus-pro.html" class="pro sidebar-a iconfont">产品管理</a>
+		<a class="kb sidebar-a iconfont" onclick="showkb();">知识库管理</a>
+			<a href="bus-kbcom.html" class="sidebar-a-son sidebar-a">信息统计</a>
+			<a href="bus-kbques.html" class="sidebar-a-son sidebar-a">问题管理</a>
+			<a href="bus-untre.html" class="sidebar-a-son sidebar-a">未处理知识</a>
+			<a href="bus-kbsim.html" class="sidebar-a-son sidebar-a">相似词库</a>
+			<a href="bus-kbchat.html" class="sidebar-a-son sidebar-a">常用语</a>
+		<a href="./bus-account.html" class="account sidebar-a iconfont">账户管理</a>
+	</div>
+
+<!-- 	<div class="sidebar-scroll" >
+
+	
+
+	</div>	 -->
+
+
+	<div class="mes-white-back">
+		<div class="mes-demo">
+			<div class="mes-entity">XXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.</div>
+			<div class="mes-date">2017年7月11日 14:35</div>
+			<div class="mes-name">用户001</div>
+			<div class="mes-resend">回复</div>
+			<div class="mes-delete">删除</div>
+		</div>
+		<div class="mes-demo"></div>
+		<div class="mes-demo"></div>
+		<div class="mes-demo"></div>
+		<div class="mes-demo"></div>
+	</div>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理员后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+		.chart:before{
+			color: rgb(0,170,255);
+		}
+	</style>
+</head>
+<body>
+	
+	<div style="position: fixed;background: #f5f5fa;height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src=".\img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src=".\img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<!-- <a href="#" class="cus-ser-pic">
+			<img src=".\img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a> -->
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="#" class="chart sidebar-a iconfont"  style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;">统计分析</a>
+		<a href="./admin-bus.html" class="bus sidebar-a iconfont">企业管理</a>
+	</div>
+
+	<div class="white-back">
+    <div style="width: 100%;height: 60px;margin-top: -10px;width: 370px;">
+        <button class="info-entity-top-button" style="margin-top: 15px;">搜索</button>
+        <input type="text" class="com-input" style="margin-right: 0px;">
+        <div style="float: right;margin-right: 5px;margin-top: 16px;font-size: 20px;">~</div>
+        <input type="text" class="com-input"  placeholder="输入日期">
+    </div>
+        
+
+		 <div id="mainbar" style="width:500px;height:300px;float: left;"></div>
+<div id="mainline" style="width:500px;height:300px;float: left;"></div>
+<div id="mainpie1" style="width:500px;height:300px;float: left;margin-left: 40px;margin-top: 40px;"></div>
+<div id="mainpie2" style="width:500px;height:300px;float: left;margin-top: 40px;"></div>
+<!-- ECharts单文件引入 -->
+<script src="build/dist/echarts.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'build/dist'
+        }
+    });
+
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar',
+            'echarts/chart/line',
+            'echarts/chart/pie'// 使用柱状图就加载bar模块，按需加载
+        ],
+
+
+        function(ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChartbar = ec.init(document.getElementById('mainbar'));
+            var myChartline = ec.init(document.getElementById('mainline'));
+            var myChartpie1 = ec.init(document.getElementById('mainpie1'));
+            var myChartpie2 = ec.init(document.getElementById('mainpie2'));
+
+            var optionbar = {
+                title: {
+                    text: '用户来源',
+                    left: 'center',
+                    x: 'center',
+                    y: 'top'
+                },
+                tooltip: {},
+
+                xAxis: {
+                    data: ["Android", "IOS", "PC", "Other"]
+                },
+                yAxis: {},
+                label:{
+                    normal:{
+                        show: 'true',
+                        position: 'outside'}
+                },
+                series: [{
+                    name: '访问量',
+                    type: 'bar',
+                    data: [500, 200, 360, 100]
+                }]
+            };
+
+            var optionline = {
+                title: {
+                    text: '用户量',
+                    left: 'center',
+                    x: 'center',
+                    y: 'top'
+                },
+                tooltip: {},
+
+                xAxis: {
+                    data: ["1月", "2月", "3月", "4月","5月","6月","7月"]
+                },
+                yAxis: {},
+                label:{
+                    normal:{
+                        show: 'true',
+                        position: 'outside'}
+                },
+                series: [{
+                    name: '用户',
+                    type: 'line',
+                    data: [179, 208, 192, 203,225,198,236]
+                }]
+            };
+
+
+
+
+            var optionpie1 = {
+                backgroundColor: 'white',
+
+                title: {
+                    text: '企业咨询分布',
+                    left: 'center',
+                    top: 20,
+                    textStyle: {
+                        color: 'black'
+                    }
+                },
+
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+
+                visualMap: {
+                    show: true,
+                    min: 80,
+                    max: 600,
+                    inRange: {
+                        colorLightness: [0, 1]
+                    }
+                },
+                series : [
+                    {
+                        name:'产品类型',
+                        type:'pie',
+                        radius : '75%',
+                        center: ['50%', '50%'],
+                        data:[
+                            {value:335, name:'益民企业'},
+                            {value:310, name:'永盛企业'},
+                            {value:274, name:'科瑞企业'},
+                            {value:185, name:'红叶企业'},
+                            {value:400, name:'普众企业'}
+                        ].sort(function (a, b) { return a.value - b.value; }),
+                        roseType: 'radius',
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: 'rgba(255, 255, 255, 0.3)'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                lineStyle: {
+                                    color: 'rgba(255, 255, 255, 0.3)'
+                                },
+                                smooth: 0.2,
+                                length: 10,
+                                length2: 20
+                            }
+                        },
+
+                        animationType: 'scale',
+                        animationEasing: 'elasticOut',
+                        animationDelay: function (idx) {
+                            return Math.random() * 200;
+                        }
+                    }
+                ]
+            };
+
+
+            var optionpie2 = {
+                title: {
+                    text: '会话量',
+                    x: 'center',
+                    y: 'top',
+                    top: '20',
+                    textStyle: {
+                        color: 'black'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    y: 'top',
+                    data:['机器人有效会话','人工有效会话','接人工排队','排队中离开']
+                },
+                series: [
+                    {
+                        name:'会话量',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+
+                        data:[
+                            {value:335, name:'机器人有效会话'},
+                            {value:310, name:'人工有效会话'},
+                            {value:234, name:'接人工排队'},
+                            {value:135, name:'排队中离开'}
+                        ]
+                    }
+                ]
+            };
+
+
+
+            //使用制定的配置项和数据显示图表
+            myChartbar.setOption(optionbar);
+            myChartline.setOption(optionline);
+            myChartpie1.setOption(optionpie1);
+            myChartpie2.setOption(optionpie2);
+
+
+        }
+    );
+</script>
+
+
+		<div id="main" style="width:800px;height:500px;margin-top: 700px;margin-left: 180px;"></div>
+	<!-- ECharts单文件引入 -->
+		<script src="build/dist/echarts.js"></script>
+		<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'build/dist'
+        }
+    });
+
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/map' // 使用柱状图就加载bar模块，按需加载
+        ],
+
+        function (ec) {
+            // 基于准备好的dom，初始化echarts图表
+
+            function randomData() {
+                return Math.round(Math.random()*100);
+            }
+
+            var myChart = ec.init(document.getElementById('main'));
+
+            var option = {
+                title: {
+                    text: '地域分布',
+                    left: 'center',
+                    x: 'center',
+                    y: 'top'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    y: 'top',
+                    data:['新企业客户','老企业客户']
+                },
+                dataRange: {
+                    orient: 'vertical',
+                    min: 0,
+                    max: 250,
+                    x: 'left',
+                    y: 'bottom',
+                    text: ['高','低'],
+                    calculable: true
+                },
+                // roamController: {
+                //     //显示策略，默认为显示(true),可选为：true（显示） | false（隐藏）。
+                //     show: true,
+                //     x: 'right',
+                //     y: 'top',
+                //     //必须，默认无(null),指定漫游组件可控地图类型，如：{ china: true }
+                //     mapTypeControl: {
+                //         //指定地图类型
+                //         'china': true
+                //     }
+                // },
+                series : [
+                    {
+                        name: '新企业客户',
+                        type: 'map',
+                        mapType: 'china',
+                        roam: false,
+                        itemStyle:{
+                            normal:{
+                                borderWidth: 2,
+                                borderColor: 'lightgreen',
+                                label: {show:true}
+                            },
+                            //鼠标经过时的样式
+                            emphasis: {
+                                //边框线宽，单位px
+                                borderWidth:2,
+                                //边框颜色
+                                borderColor:'#fff',
+                                //鼠标经过时区域的颜色
+                                color: '#32cd32',
+                                label: {
+                                    show: true,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }
+                        },
+                        data:[
+                            {name: '北京',value: randomData() },
+                            {name: '天津',value: randomData() },
+                            {name: '上海',value: randomData() },
+                            {name: '重庆',value: randomData() },
+                            {name: '河北',value: randomData() },
+                            {name: '河南',value: randomData() },
+                            {name: '云南',value: randomData() },
+                            {name: '辽宁',value: randomData() },
+                            {name: '黑龙江',value: randomData() },
+                            {name: '湖南',value: randomData() },
+                            {name: '安徽',value: randomData() },
+                            {name: '山东',value: randomData() },
+                            {name: '新疆',value: randomData() },
+                            {name: '江苏',value: randomData() },
+                            {name: '浙江',value: randomData() },
+                            {name: '江西',value: randomData() },
+                            {name: '湖北',value: randomData() },
+                            {name: '广西',value: randomData() },
+                            {name: '甘肃',value: randomData() },
+                            {name: '山西',value: randomData() },
+                            {name: '内蒙古',value: randomData() },
+                            {name: '陕西',value: randomData() },
+                            {name: '吉林',value: randomData() },
+                            {name: '福建',value: randomData() },
+                            {name: '贵州',value: randomData() },
+                            {name: '广东',value: randomData() },
+                            {name: '青海',value: randomData() },
+                            {name: '西藏',value: randomData() },
+                            {name: '四川',value: randomData() },
+                            {name: '宁夏',value: randomData() },
+                            {name: '海南',value: randomData() },
+                            {name: '台湾',value: randomData() },
+                            {name: '香港',value: randomData() },
+                            {name: '澳门',value: randomData() }
+                        ]
+                    },
+                    {
+                        name: '老企业客户',
+                        type: 'map',
+                        mapType: 'china',
+                        roam: false,
+                        itemStyle:{
+                            normal:{
+                                borderWidth: 2,
+                                borderColor: 'lightgreen',
+                                label: {show:true}
+                            },
+                            emphasis: {
+                                borderWidth:2,
+                                borderColor:'#fff',
+                                color: '#32cd32',
+                                label: {
+                                    show: true,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            }
+                        },
+                        data:[
+                            {name: '北京',value: randomData() },
+                            {name: '天津',value: randomData() },
+                            {name: '上海',value: randomData() },
+                            {name: '重庆',value: randomData() },
+                            {name: '河北',value: randomData() },
+                            {name: '安徽',value: randomData() },
+                            {name: '新疆',value: randomData() },
+                            {name: '浙江',value: randomData() },
+                            {name: '江西',value: randomData() },
+                            {name: '山西',value: randomData() },
+                            {name: '内蒙古',value: randomData() },
+                            {name: '吉林',value: randomData() },
+                            {name: '福建',value: randomData() },
+                            {name: '广东',value: randomData() },
+                            {name: '西藏',value: randomData() },
+                            {name: '四川',value: randomData() },
+                            {name: '宁夏',value: randomData() },
+                            {name: '香港',value: randomData() },
+                            {name: '澳门',value: randomData() }
+                        ]
+                    },
+
+                ]
+            };
+
+            // 为echarts对象加载数据
+            myChart.setOption(option);
+        }
+    );
+</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>企业后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+	.kb:before{
+		color: rgb(0,170,255);
+	}
+	.kb:after{
+		color: rgb(0,170,255);
+	}
+	th{
+		color: #333;
+		border-top: 1px solid rgb(180,180,180);
+		border-bottom: 1px solid rgb(180,180,180);
+		padding-top: 8px;
+		padding-bottom: 8px;
+		padding-right: 8px;
+		padding-left: 8px;
+		background-color: rgb(245,245,245);
+		font-size: 14px;
+		line-height: 20px;
+
+	}
+	tr{
+		overflow:hidden;
+		border-bottom: 1px solid rgb(100,100,100);
+		height: 30px;
+	}
+	table{
+		overflow:hidden;
+		margin-top: 10px;
+		table-layout: fixed;
+	}
+	td{
+		padding-right: 20px;
+		padding-left: 20px;
+		/*white-space:nowrap;
+		word-break:keep-all;*/
+		text-overflow:ellipsis;
+		overflow:hidden;
+		height: 90px;
+		border-bottom: 1px solid rgb(100,100,100);
+	}
+	td:hover{
+		background: transparent;
+	}
+	</style>
+</head>
+<body>
+	<div class="kbques-zhedang" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;background: rgba(0,0,0,0.7);z-index: 100;display: none;"></div>
+	<div style="position: fixed;background: rgb(239,244,245);height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src=".\img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src=".\img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<a href="#" class="cus-ser-pic">
+			<img src=".\img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a>
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./bus-chart.html" class="chart sidebar-a iconfont">产品问题分布</a>
+		<a href="./bus-info.html" class="info sidebar-a iconfont">企业信息</a>
+		<!-- <a href="./bus-mes.html" class="mes sidebar-a iconfont">用户留言</a> -->
+		<a href="#" class="arr sidebar-a iconfont" onclick="showarr();">客服管理</a>
+			<a href="bus-arrinfo.html" class="sidebar-a-son sidebar-a">客服信息</a>
+			<a href="bus-arrtime.html" class="sidebar-a-son sidebar-a">排班管理</a>
+			<a href="bus-arreva.html" class="sidebar-a-son sidebar-a">客服统计</a>
+		<!-- <a href="./bus-add.html" class="add-questions sidebar-a iconfont">添加问题</a> -->
+		<a href="./bus-pro.html" class="pro sidebar-a iconfont">产品管理</a>
+		<a class="kb sidebar-a iconfont" style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;" onclick="showkb();">知识库管理</a>
+			<a href="bus-kbcom.html" class="sidebar-a-son sidebar-a" style="display: block;">信息统计</a>
+			<a href="bus-kbques.html" class="sidebar-a-son sidebar-a" style="display: block;color: white;">问题管理</a>
+			<a href="bus-untre.html" class="sidebar-a-son sidebar-a" style="display: block;">未处理知识</a>
+			<a href="bus-kbsim.html" class="sidebar-a-son sidebar-a" style="display: block;">相似词库</a>
+			<a href="bus-kbchat.html" class="sidebar-a-son sidebar-a" style="display: block;">常用语</a>
+		<a href="./bus-account.html" class="account sidebar-a iconfont">账户管理</a>
+	</div>
+<!-- 	<div class="sidebar-scroll" >
+	</div>	 -->
+	<div class="info-topbar">
+		<span class="info-topbar-title">产品型号：</span>
+		<button class="kb-select">SNB23</button>
+		<div class="r-arr iconfont"></div>
+		<!-- <span class="info-topbar-title">分类：</span> -->
+		<div style="float: left;">
+			<button class="kb-select" style="margin-left: 20px;">常见故障</button>
+
+		</div>
+		
+		<button class="kb-new-product">新增分类</button>
+	</div>
+
+	<div class="info-entity">
+		<div class="info-entity-top">
+			<div class="info-entity-top-title">SNB23 （共 56 条记录）</div>
+			<button class="info-entity-top-button" style="width: 110px;border-radius: 5px;" onclick="shownewques();">添加问题</button>
+			<button class="info-entity-top-button">搜索</button>
+			<input type="text" class="info-entity-top-search-input" placeholder="请输入关键字">
+			<button class="info-entity-class-button">按问题</button>
+		</div>
+		<table>
+			<tr>
+				<th style="width: 200px;">问题</th>
+				<th style="width: 200px;">答案</th>
+				<th style="width: 160px;">类别</th>
+				<th style="width: 160px;">关键词</th>
+				<th style="width: 160px;">状态</th>
+				<th style="width: 160px;">操作</th>
+			</tr>
+			<tr>
+				<td>手指按在指纹窗口上，门锁没有反应</td>
+				<td>1、先按一下“0”键再按下手指
+2、用手指快速轻点两下窗口，再按下手指</td>
+				<td>常见故障</td>
+				<td>没有反应，按，指纹，窗口</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+				<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+			<tr>
+				<td>手指按在窗口上，门锁亮红灯，蜂鸣器响4短声</td>
+				<td>当前指纹与预先设定好的不相同，请使用有效的指纹</td>
+				<td>常见故障</td>
+				<td>红灯，窗口，蜂鸣器</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+					<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+			<tr>
+				<td>按下手指（或输入密码）时，红蓝灯交替闪</td>
+				<td>先取消反锁设置</td>
+				<td>常见故障</td>
+				<td>闪，红蓝灯，按下，输入</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+					<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+			<tr>
+				<td>经常验证指纹失败</td>
+				<td>1、清洁手指
+2、湿润手指
+3、擦拭手指
+4、清洁采集窗口</td>
+				<td>常见故障</td>
+				<td>验证，指纹，失败</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+					<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+		</table>
+
+		<div class="bus-bottom-menu">
+			<!-- <div class="bus-bottom-menu-left">共24条，每页10条</div> -->
+			<div class="bus-bottom-menu-right">
+				<button class="turn-button">跳转</button>
+				<div class="near-turn-input">页</div>
+				<input type="text" class="turn-input" value="1">
+				<div class="near-turn-input">第</div>
+				<div class="turn-text" style="margin-right: 20px;">下一页</div>
+				<div class="turn-div-now">1</div>
+				<div class="turn-text">上一页</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="newques-entity">
+		<div class="newques-top">
+			<div class="newques-title">添加问题</div>
+		</div>
+		<div class="newques-standard">
+			<div class="newques-standard-title">标准问法：</div>
+			<input type="text" class="newques-standard-input" placeholder="请输入标准问法，标准问法一般是该词条答案的最常见问法">
+		</div>
+		<div class="newques-standard">
+			<div class="newques-standard-title" style="margin-left: 14px;">关键词：</div>
+			<input type="text" class="newques-standard-input" placeholder="请输入关键词，以逗号隔开">
+		</div>
+		<div class="newques-standard">
+			<div class="newques-standard-title">选择分类：</div>
+			<button class="newques-select-button" style="cursor: pointer;">常见故障</button>
+		</div>
+		<div class="newques-standard">
+			<div class="newques-standard-title">标准答案：</div>
+			<textarea name="" id="" cols="30" rows="10" class="newques-standard-area"></textarea>
+		</div>
+		<div style="text-align: center;margin-top: 20px;">
+			<button style="background: rgb(0,170,236);height: 30px;width: 90px;color: white;margin-right: 10px;cursor: pointer;" onclick="closenewques();">保存</button>
+			<button style="border:1px solid rgb(0,170,236);width: 90px;height: 30px;background: white;cursor: pointer;" onclick="closenewques();">返回</button>
+		</div>
+		
+	</div>
+	
+	<script>
+		function shownewques(){
+			x=document.getElementsByClassName("kbques-zhedang");
+			x[0].style.display="block";
+			y=document.getElementsByClassName("newques-entity");
+			y[0].style.display="block";
+		}
+		function closenewques(){
+			x=document.getElementsByClassName("kbques-zhedang");
+			x[0].style.display="none";
+			y=document.getElementsByClassName("newques-entity");
+			y[0].style.display="none";
+		}
+	</script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

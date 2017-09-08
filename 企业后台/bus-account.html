@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>企业后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+	.account:before{
+		color: rgb(0,170,255);
+	}
+	</style>
+
+</head>
+<body>
+
+	<div style="position: fixed;background: #f5f5fa;height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<!-- <img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;"> -->
+		<!-- <a style="text-decoration: none" href="../首页/index.html" class="brand"></a> -->
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<!-- <div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div> -->
+		<div style="border-bottom: 1px solid #ddd;margin-left: 260px;">
+			<img src="img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+			<img src="img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+			<a href="#" class="cus-ser-pic">
+			<img src="img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+			</a>
+		</div>
+		
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./bus-chart.html" class="chart sidebar-a iconfont">产品问题分布</a>
+		<a href="./bus-info.html" class="info sidebar-a iconfont">企业信息</a>
+		<!-- <a href="./bus-mes.html" class="mes sidebar-a iconfont">用户留言</a> -->
+		<a class="arr sidebar-a iconfont" onclick="showarr();">客服管理</a>
+			<a href="bus-arrinfo.html" class="sidebar-a-son sidebar-a">客服信息</a>
+			<a href="bus-arrtime.html" class="sidebar-a-son sidebar-a">排班管理</a>
+			<a href="bus-arreva.html" class="sidebar-a-son sidebar-a">客服统计</a>
+		<!-- <a href="./bus-add.html" class="add-questions sidebar-a iconfont">添加问题</a> -->
+		<a href="./bus-pro.html" class="pro sidebar-a iconfont">产品管理</a>
+		<a class="kb sidebar-a iconfont" onclick="showkb();">知识库管理</a>
+			<a href="bus-kbcom.html" class="sidebar-a-son sidebar-a">信息统计</a>
+			<a href="bus-kbques.html" class="sidebar-a-son sidebar-a">问题管理</a>
+			<a href="bus-untre.html" class="sidebar-a-son sidebar-a">未处理知识</a>
+			<a href="bus-kbsim.html" class="sidebar-a-son sidebar-a">相似词库</a>
+			<a href="bus-kbchat.html" class="sidebar-a-son sidebar-a">常用语</a>
+		<a href="./bus-account.html" class="account sidebar-a iconfont" style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;">账户管理</a>
+	</div>
+	<!-- <div class="sidebar-scroll" >
+	</div>	 -->
+
+	<div class="acc-white-back">
+		<div class="acc-info-title">账户信息：</div>
+		<div style="padding-left: 30px;margin-top: 20px;">
+			<div class="balance">账户余额</div>
+			<div class="balance-num">￥2000</div>
+			<button class="recharge-button">在线充值</button>
+			<div class="bus-name">公司名称：XXX</div>	
+		</div>
+		<!-- <div style="border: 1px solid #e5e5e5;margin-top: 20px;"></div> -->
+		<div style="padding-left: 30px;margin-top: 18px;">
+			<div class="acc-normal ver">账户版本：标准版</div>
+			<div class="acc-normal cap">在线坐席：6个</div>
+			<div class="acc-normal arr-data">有效日期：2018年7月22日 </div>
+			<div class="acc-normal cap">机器人对话量：40/10000</div>
+			<div class="acc-normal cap">知识库容量：200/10000</div>
+		</div>
+		<div class="acc-info-title">购买套餐：</div>
+		<div class=acc-box style="margin-left: 30px;">
+			<h3>标准版</h3>
+			<h2>2330</h2>
+			<button class="buy-button">立即购买</button>
+		</div>
+		<div class=acc-box>
+			<h3>企业版</h3>
+			<h2>3330</h2>
+			<button class="buy-button">立即购买</button>
+		</div>
+		<div class=acc-box>
+			<h3>至尊版</h3>
+			<h2>5330</h2>
+			<button class="buy-button">立即购买</button>
+		</div>
+		<!-- <div class="acc-info-entity-right"></div> -->
+	</div>
+
+	<script src="js/main.js"></script>
+
+</body>
+</html>

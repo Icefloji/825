@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>企业后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+	.info:before{
+		color: rgb(0,170,255);
+	}
+	</style>
+
+</head>
+<body>
+
+	<div style="position: fixed;background: #f5f5fa;height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src="img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src="img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<a href="#" class="cus-ser-pic">
+			<img src="img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a>
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./bus-chart.html" class="chart sidebar-a iconfont">产品问题分布</a>
+		<a href="#" class="info sidebar-a iconfont" style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;">企业信息</a>
+		<!-- <a href="./bus-mes.html" class="mes sidebar-a iconfont">用户留言</a> -->
+		<a class="arr sidebar-a iconfont" onclick="showarr();">客服管理</a>
+			<a href="bus-arrinfo.html" class="sidebar-a-son sidebar-a">客服信息</a>
+			<a href="bus-arrtime.html" class="sidebar-a-son sidebar-a">排班管理</a>
+			<a href="bus-arreva.html" class="sidebar-a-son sidebar-a">客服统计</a>
+		<!-- <a href="./bus-add.html" class="add-questions sidebar-a iconfont">添加问题</a> -->
+		<a href="./bus-pro.html" class="pro sidebar-a iconfont">产品管理</a>
+		<a class="kb sidebar-a iconfont" onclick="showkb();">知识库管理</a>
+			<a href="bus-kbcom.html" class="sidebar-a-son sidebar-a">信息统计</a>
+			<a href="bus-kbques.html" class="sidebar-a-son sidebar-a">问题管理</a>
+			<a href="bus-untre.html" class="sidebar-a-son sidebar-a">未处理知识</a>
+			<a href="bus-kbsim.html" class="sidebar-a-son sidebar-a">相似词库</a>
+			<a href="bus-kbchat.html" class="sidebar-a-son sidebar-a">常用语</a>
+		<a href="./bus-account.html" class="account sidebar-a iconfont">账户管理</a>
+	</div>
+
+		<div class=bus-info-white-back>
+
+		<div style="float: left;width: 650px;">
+			<div class="bus-info-role">角色：
+			<input type="text" value="管理员" disabled="disabled" style="font-size: 16px;text-align: center;width: 350px;">
+		</div>
+		<div class="bus-info-job-number">企业名称：
+			<input type="text" value="益民企业" disabled="disabled" style="font-size: 16px;text-align: center;width: 350px;">
+		</div>
+		<div class="bus-info-name">昵称：
+			<input type="text" value="Tony" style="font-size: 16px;text-align: center;width: 350px;">
+		</div>
+		<div class="bus-info-call-number">电话：
+			<input type="text" value="13158425714" style="font-size: 16px;text-align: center;width: 350px;">
+		</div>
+		<div class="bus-info-mailbox">邮箱：
+			<input type="text" value="35478924@qq.com" style="font-size: 16px;text-align: center;width: 350px;">
+		</div>
+		<button class="bus-info-save" style="cursor: pointer; width: 110px;height: 40px;margin-top: 60px;margin-left: 165px;">保存修改</button>
+		</div>
+		<div style="float: left;width: 500px;">
+			<div class="info-head-pic">
+				<img src="./img/bus-pic.png" alt="" style="margin-top: 15px; width: 80px;height: 80px;float: left;">
+				<div style="float: left;width: 200px;">
+					<div style="float: left;color: rgb(100,100,100);margin-top: 15px;margin-left: 5px;">文件大小不要超过200KB，文件格式为jpg。</div>
+					<button class="upload-button">上传头像</button>
+				</div>
+				<div class="info-person">个人简介:</div>
+				<textarea style="width: 400px;height: 150px;resize: none;margin-top: 10px;" name="" id="" cols="30" rows="10"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="sidebar-scroll" >
+	</div>	 -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

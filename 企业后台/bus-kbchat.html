@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>企业后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+	.kb:before{
+		color: rgb(0,170,255);
+	}
+	.kb:after{
+		color: rgb(0,170,255);
+	}
+	th{
+		color: #333;
+		border-top: 1px solid rgb(180,180,180);
+		border-bottom: 1px solid rgb(180,180,180);
+		padding-top: 8px;
+		padding-bottom: 8px;
+		background-color: rgb(245,245,245);
+		font-size: 14px;
+		line-height: 20px;
+	}
+	table{
+		margin-top: 10px;
+	}
+	td:hover{
+		background: transparent;
+	}
+	</style>
+</head>
+<body>
+	<div style="position: fixed;background: rgb(239,244,245);height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src=".\img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src=".\img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<a href="#" class="cus-ser-pic">
+			<img src=".\img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a>
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./bus-chart.html" class="chart sidebar-a iconfont">产品问题分布</a>
+		<a href="./bus-info.html" class="info sidebar-a iconfont">企业信息</a>
+		<!-- <a href="./bus-mes.html" class="mes sidebar-a iconfont">用户留言</a> -->
+		<a href="#" class="arr sidebar-a iconfont" onclick="showarr();">客服管理</a>
+			<a href="bus-arrinfo.html" class="sidebar-a-son sidebar-a">客服信息</a>
+			<a href="bus-arrtime.html" class="sidebar-a-son sidebar-a">排班管理</a>
+			<a href="bus-arreva.html" class="sidebar-a-son sidebar-a">客服统计</a>
+		<!-- <a href="./bus-add.html" class="add-questions sidebar-a iconfont">添加问题</a> -->
+		<a href="./bus-pro.html" class="pro sidebar-a iconfont">产品管理</a>
+		<a class="kb sidebar-a iconfont" style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;" onclick="showkb();">知识库管理</a>
+			<a href="bus-kbcom.html" class="sidebar-a-son sidebar-a" style="display: block;">信息统计</a>
+			<a href="bus-kbques.html" class="sidebar-a-son sidebar-a" style="display: block;">问题管理</a>
+			<a href="bus-untre.html" class="sidebar-a-son sidebar-a" style="display: block;">未处理知识</a>
+			<a href="bus-kbsim.html" class="sidebar-a-son sidebar-a" style="display: block;">相似词库</a>
+			<a href="#" class="sidebar-a-son sidebar-a" style="display: block;color: white;">常用语</a>
+		<a href="./bus-account.html" class="account sidebar-a iconfont">账户管理</a>
+	</div>
+<!-- 	<div class="sidebar-scroll" >
+	</div>	 -->
+
+	<div class="chat-white-back">
+
+		<div class="info-entity-top">
+			<!-- <div class="info-entity-top-title" style="font-size: 25px;">产品管理：</div> -->
+			<button class="info-entity-top-button" style="width: 110px;border-radius: 5px;">新增常用语</button>
+			<button class="info-entity-top-button">搜索</button>
+			<input type="text" class="info-entity-top-search-input" placeholder="请输入关键字">
+			<button class="info-entity-class-button">按问题</button>
+		</div>
+
+		<table>
+			<tr>
+				<th style="width: 210px;">问题</th>
+				<th style="width: 210px;">相似问法</th>
+				<th style="width: 170px;">回答</th>
+				<th style="width: 170px;">创建时间</th>
+				<th style="width: 170px;">状态</th>
+				<th style="width: 170px;">操作</th>
+			</tr>
+			<tr>
+				<td>你好</td>
+				<td>亲，HI，您好</td>
+				<td>hi，有问题您可以直接问哦~</td>
+				<td>2017年7月18日</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+					<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+			<tr>
+				<td>在吗</td>
+				<td>在？，有人吗</td>
+				<td>在的哦，有什么可以为亲服务的吗？</td>
+				<td>2017年7月16日</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+					<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+			<tr>
+				<td>再见</td>
+				<td>拜拜</td>
+				<td>再见亲，很高兴为您服务！</td>
+				<td>2017年7月13日</td>
+				<td style="color: rgb(0, 128, 0);">启用</td>
+				<td>
+					<div class="bus-kb-tools">编辑</div>
+				<div class="bus-kb-tools">停用</div>
+				<div class="bus-kb-tools">删除</div>
+				</td>
+			</tr>
+		</table>
+
+		<div class="bus-bottom-menu">
+			<!-- <div class="bus-bottom-menu-left">共24条，每页10条</div> -->
+			<div class="bus-bottom-menu-right">
+				<button class="turn-button">跳转</button>
+				<div class="near-turn-input">页</div>
+				<input type="text" class="turn-input" value="1">
+				<div class="near-turn-input">第</div>
+				<div class="turn-text" style="margin-right: 20px;">下一页</div>
+				<div class="turn-div-now">1</div>
+				<div class="turn-text">上一页</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>企业后台</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+	.arr:before{
+		color: rgb(0,170,255);
+	}
+	.arr:after{
+		color: rgb(0,170,255);
+	}
+	th{
+		width: 190px;
+		line-height: 50px;
+		background-color: rgb(244,246,250);
+		/*margin-bottom: 20px;*/
+	}
+	td:hover{
+		background: none;
+	}
+	td{
+		border-top: 1px solid rgb(117,117,117);
+	}
+	table{
+		border-spacing: 0px;
+		margin-left: 20px;
+	}
+	tr:hover{
+		background-color: rgb(240,240,240);
+	}
+	#th-tr:hover{
+		background: none;
+	}
+	</style>
+</head>
+<body>
+
+	<div style="position: fixed;background: #f5f5fa;height: 100%;width: 100%;z-index: -99999;top:0;left:0"></div>
+	<div class="topbar" >
+		<a style="text-decoration: none" href="../首页/index.html" class="brand"></a>
+		<!-- <img src="./img/brand.jpg" alt="" style="float: left;height: 60px;margin-left:20px;margin-top: 10px;"> -->
+		<div style="font-weight: bold;text-indent: 8px;line-height: 114px;float: left;">企业管理系统</div>
+		<img src=".\img\set.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<img src=".\img\info.png" alt="" style="height: 24px;width: 24px;margin-top: 28px;float: right;padding-right: 50px;cursor: pointer;">
+		<a href="#" class="cus-ser-pic">
+			<img src=".\img\bus-pic.png" style="width: 60px;height: 60px;margin-top: 11px;margin-left: 22px;" alt="">
+			<div class="cus-ser-name">Tony</div>
+		</a>
+
+	</div>
+	<div class="sidebar">
+		<img src="./img/brandtr.jpg" alt="" style="float: left;width: 260px;height: 82px;">
+		<a href="./bus-chart.html" class="chart sidebar-a iconfont">产品问题分布</a>
+		<a href="./bus-info.html" class="info sidebar-a iconfont">企业信息</a>
+		<!-- <a href="./bus-mes.html" class="mes sidebar-a iconfont">用户留言</a> -->
+		<a href="#" class="arr sidebar-a iconfont"  style="border-left: 5px solid rgb(24,131,215);background: rgb(37,44,53);color: white;" onclick="showarr();">客服管理</a>
+		<a href="bus-arrinfo.html" class="sidebar-a-son sidebar-a" style="display: block;">客服信息</a>
+		<a href="bus-arrtime.html" class="sidebar-a-son sidebar-a" style="display: block;">排班管理</a>
+			<a href="bus-arreva.html" class="sidebar-a-son sidebar-a" style="display: block;color: white">客服统计</a>
+		<!-- <a href="./bus-add.html" class="add-questions sidebar-a iconfont">添加问题</a> -->
+		<a href="./bus-pro.html" class="pro sidebar-a iconfont">产品管理</a>
+		<a class="kb sidebar-a iconfont" onclick="showkb();">知识库管理</a>
+			<a href="bus-kbcom.html" class="sidebar-a-son sidebar-a">信息统计</a>
+			<a href="bus-kbques.html" class="sidebar-a-son sidebar-a">问题管理</a>
+			<a href="bus-untre.html" class="sidebar-a-son sidebar-a">未处理知识</a>
+			<a href="bus-kbsim.html" class="sidebar-a-son sidebar-a">相似词库</a>
+			<a href="bus-kbchat.html" class="sidebar-a-son sidebar-a">常用语</a>
+		<a href="./bus-account.html" class="account sidebar-a iconfont">账户管理</a>
+	</div>
+
+	
+<!-- 	<div class="sidebar-scroll" >
+
+		
+
+	</div>	 -->
+
+	<div class="arreva-white-back">
+		<!-- <h1 class="eva-month">7月</h1> -->
+		<div class="info-entity-top">
+			<!-- <div class="info-entity-top-title" style="font-size: 25px;">产品管理：</div> -->
+		
+			<button class="info-entity-top-button">搜索</button>
+			<input type="text" class="info-entity-top-search-input" placeholder="请输入关键字">
+			<button class="info-entity-class-button">按名字</button>
+		</div>
+		<!-- <button class="eva-pre">上月</button><button class="eva-next">下月</button> -->
+		<table class="eva-table">
+			<tr id="th-tr">
+				<th>客服名字</th>
+				<th>工号</th>
+				<th>咨询次数</th>
+				<th>评价次数</th>
+				<th>工作时长</th>
+				<th>评价平均分</th>
+			</tr>
+			<tr>
+				<td>Taylor</td>
+				<td>001</td>
+				<td>79</td>
+				<td>23</td>
+				<td>203时34分</td>
+				<td>4.6</td>
+			</tr>
+			<tr>
+				<td>Aaron</td>
+				<td>002</td>
+				<td>69</td>
+				<td>21</td>
+				<td>155时23分</td>
+				<td>4.7</td>
+			</tr>
+			<tr>
+				<td>Jason</td>
+				<td>003</td>
+				<td>112</td>
+				<td>33</td>
+				<td>323时44分</td>
+				<td>4.8</td>
+			</tr>
+			<tr>
+				<td>Keith</td>
+				<td>004</td>
+				<td>98</td>
+				<td>35</td>
+				<td>238时06分</td>
+				<td>4.4</td>
+			</tr>
+			<tr>
+				<td>Leo</td>
+				<td>005</td>
+				<td>96</td>
+				<td>43</td>
+				<td>263时27分</td>
+				<td>4.8</td>
+			</tr>
+			<tr>
+				<td>Marlon</td>
+				<td>006</td>
+				<td>79</td>
+				<td>25</td>
+				<td>273时04分</td>
+				<td>4.7</td>
+			</tr>
+			
+		</table>
+		<div class="bus-bottom-menu">
+			<!-- <div class="bus-bottom-menu-left">共24条，每页10条</div> -->
+			<div class="bus-bottom-menu-right">
+				<button class="turn-button">跳转</button>
+				<div class="near-turn-input">页</div>
+				<input type="text" class="turn-input" value="1">
+				<div class="near-turn-input">第</div>
+				<div class="turn-text" style="margin-right: 20px;">下一页</div>
+				<div class="turn-div-now">1</div>
+				<div class="turn-text">上一页</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/main.js"></script>
+
+</body>
+</html>
